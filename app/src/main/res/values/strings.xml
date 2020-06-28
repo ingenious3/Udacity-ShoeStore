@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">ShoeStore</string>
+
+    <string name="login_fragment_title">Login</string>
+    <string name="label_email">Email</string>
+    <string name="label_password">Password</string>
+    <string name="login_button">Sign in</string>
+    <string name="register_button">Register</string>
+    <string name="logout">Logout</string>
+
+    <string name="fragment_welcome_title">Welcome</string>
+    <string name="label1_welcome_fragment">Welcome to Shoe Store</string>
+    <string name="label2_welcome_fragment">Browse popular shoe collections and add to your favorite list</string>
+    <string name="button_navigate_instruction">See Instructions</string>
+
+    <string name="fragment_instructions_title">Instructions</string>
+    <string name="label1_instruction_fragment">On next page you will see the list of shoes.</string>
+    <string name="label2_instruction_fragment">At next screen first tap on + button to add new shoe item, after that it will be appear in list.</string>
+    <string name="button_navigate_list">Check Shoe Collection</string>
+
+    <string name="shoe_list_fragment_title">ShoeList</string>
+
+    <string name="shoe_detail_fragment_title">ShoeDetail</string>
+    <string name="label_show_company">Company Name</string>
+    <string name="label_show_shoe_name">Shoe Name</string>
+    <string name="label_description">Description</string>
+    <string name="label_shoe_size">Size</string>
+    <string name="save_button">Save to Collection</string>
+    <string name="cancel_button">Cancel</string>
+
 </resources>

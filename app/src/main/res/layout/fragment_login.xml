@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="shoestoreviewmodel"
+            type="com.udacity.shoestore.models.ShoeStoreViewModel" />
+        <variable
+            name="navDirection"
+            type="androidx.navigation.NavDirections" />
+    </data>
+    <!--constraint layout allows to control the layout values by adding constraints on
+        different views , w.r.t. other view as well as parent. -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.fragments.LoginFragment">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_email_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_email"
+            android:layout_marginStart="@dimen/padding16dp"
+            android:layout_marginTop="@dimen/dimen48dp"
+            android:layout_marginEnd="@dimen/padding16dp"
+            android:baselineAligned="true"
+            android:labelFor="@+id/input_member"
+            android:backgroundTint="@color/colorLightBlue"
+            app:endIconMode="clear_text"
+            app:hintAnimationEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_email"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen48dp"
+                android:inputType="textEmailAddress"
+                android:maxLength="40"
+                android:minHeight="@dimen/dimen48dp"
+                android:maxLines="1"
+                android:imeOptions="flagNoExtractUi|actionNext" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_password_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_password"
+            android:layout_marginStart="@dimen/padding16dp"
+            android:layout_marginTop="@dimen/padding16dp"
+            android:layout_marginEnd="@dimen/padding16dp"
+            android:baselineAligned="true"
+            android:backgroundTint="@color/colorLightBlue"
+            android:labelFor="@+id/input_password"
+            app:endIconMode="password_toggle"
+            app:hintAnimationEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_email_container"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen48dp"
+                android:inputType="textPassword"
+                android:maxLength="10"
+                android:textSize="@dimen/text_medium"
+                android:minHeight="@dimen/dimen48dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/navigate_login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login_button"
+            android:elevation="@dimen/dimen4dp"
+            android:padding="@dimen/dimen8dp"
+            android:textSize="@dimen/text_medium"
+            android:layout_marginStart="@dimen/dimen16dp"
+            android:layout_marginTop="@dimen/dimen16dp"
+            android:layout_marginEnd="@dimen/dimen16dp"
+            android:backgroundTint="@color/colorLightBlue"
+            android:onClick="@{()->shoestoreviewmodel.setLoginDestination(navDirection.getActionId())}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_password_container" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/navigate_register_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->shoestoreviewmodel.setNewDestination(navDirection.getActionId())}"
+            android:text="@string/register_button"
+            android:padding="@dimen/dimen8dp"
+            android:textSize="@dimen/text_medium"
+            android:layout_marginStart="@dimen/dimen16dp"
+            android:layout_marginTop="@dimen/dimen8dp"
+            android:layout_marginEnd="@dimen/dimen16dp"
+            android:elevation="@dimen/dimen4dp"
+            android:backgroundTint="@color/colorLightBlue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/navigate_login_button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

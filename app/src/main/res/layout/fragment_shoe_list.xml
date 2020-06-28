@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="shoestoreviewmodel"
+            type="com.udacity.shoestore.models.ShoeStoreViewModel" />
+        <variable
+            name="navDirection"
+            type="androidx.navigation.NavDirections" />
+    </data>
+
+        <!--constraint layout allows to control the layout values by adding constraints on
+        different views , w.r.t. other view as well as parent. -->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".view.fragments.ShoeListFragment">
+
+            <ScrollView
+                android:id="@+id/scroll_view_shoe_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/shoe_list_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@tools:sample/full_names" />
+
+                </LinearLayout>
+            </ScrollView>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/padding16dp"
+                android:elevation="@dimen/dimen4dp"
+                android:onClick="@{()->shoestoreviewmodel.setNewDestination(navDirection.getActionId())}"
+                app:backgroundTint="@color/colorLightBlue"
+                app:srcCompat="@drawable/ic_add"
+                app:tint="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.MaterialComponents.FloatingActionButton"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+    </data>
+    <!--constraint layout allows to control the layout values by adding constraints on
+       different views , w.r.t. other view as well as parent. -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/list_item_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground">
+
+        <TextView
+            android:id="@+id/item_shoe_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{shoe.name}"
+            android:textSize="@dimen/text_medium_large"
+            android:layout_marginStart="@dimen/dimen24dp"
+            android:layout_marginTop="@dimen/padding16dp"
+            android:layout_marginEnd="@dimen/padding16dp"
+            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/item_company_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:maxLines="1"
+            android:text="@{String.valueOf(shoe.company)}"
+            android:layout_marginStart="@dimen/dimen24dp"
+            android:layout_marginTop="@dimen/dimen8dp"
+            android:layout_marginEnd="@dimen/padding16dp"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_shoe_name" />
+
+
+        <TextView
+            android:id="@+id/item_shoe_size"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:maxLines="1"
+            android:text="@{String.valueOf(shoe.size)}"
+            android:layout_marginStart="@dimen/dimen24dp"
+            android:layout_marginTop="@dimen/dimen8dp"
+            android:layout_marginEnd="@dimen/padding16dp"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_company_name" />
+
+        <TextView
+            android:id="@+id/item_shoe_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{shoe.description}"
+            android:gravity="start"
+            android:maxLines="3"
+            android:layout_marginStart="@dimen/dimen24dp"
+            android:layout_marginTop="@dimen/dimen4dp"
+            android:layout_marginEnd="@dimen/padding16dp"
+            android:layout_marginBottom="@dimen/padding16dp"
+            android:textColor="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_shoe_size" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

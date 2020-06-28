@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="showstoreviewmodel"
+            type="com.udacity.shoestore.models.ShoeStoreViewModel" />
+
+        <variable
+            name="navDirection"
+            type="androidx.navigation.NavDirections" />
+    </data>
+    <!--constraint layout used because it provides best options  to control the layout values by adding constraints on
+        different views , with related to other view as well as parent. Also easy to work with it by UI editor as well as from XML-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.fragments.ShoeDetailFragment">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_shoe_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_show_shoe_name"
+            android:layout_marginStart="@dimen/padding16dp"
+            android:layout_marginTop="@dimen/dimen48dp"
+            android:layout_marginEnd="@dimen/padding16dp"
+            android:baselineAligned="true"
+            android:labelFor="@+id/input_shoe_name"
+            app:hintAnimationEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_shoe_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen48dp"
+                android:inputType="text"
+                android:maxLength="40"
+                android:minHeight="@dimen/dimen48dp"
+                android:text="@={showstoreviewmodel.shoe.name}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_company_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_show_company"
+            android:layout_marginStart="@dimen/padding16dp"
+            android:layout_marginTop="@dimen/dimen16dp"
+            android:layout_marginEnd="@dimen/padding16dp"
+            android:baselineAligned="true"
+            android:labelFor="@+id/input_company_name"
+            app:hintAnimationEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_shoe_container"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_company_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen48dp"
+                android:inputType="text"
+                android:maxLength="40"
+                android:minHeight="@dimen/dimen48dp"
+                android:text="@={showstoreviewmodel.shoe.company}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_size_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_shoe_size"
+            android:layout_marginStart="@dimen/padding16dp"
+            android:layout_marginTop="@dimen/padding16dp"
+            android:layout_marginEnd="@dimen/padding16dp"
+            android:baselineAligned="true"
+            android:labelFor="@+id/input_shoe_size"
+            app:hintAnimationEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_company_container"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_shoe_size"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen48dp"
+                android:inputType="numberDecimal"
+                android:maxLength="3"
+                android:minHeight="@dimen/dimen48dp"
+                android:text="@={`` + showstoreviewmodel.shoe.size}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_description_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="true"
+            android:hint="@string/label_description"
+            android:layout_marginStart="@dimen/padding16dp"
+            android:layout_marginTop="@dimen/padding16dp"
+            android:layout_marginEnd="@dimen/padding16dp"
+            android:labelFor="@+id/input_shoe_description"
+            app:hintAnimationEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_size_container"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_shoe_description"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen48dp"
+                android:minHeight="@dimen/dimen48dp"
+                android:text="@={showstoreviewmodel.shoe.description}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/save_button"
+            android:textSize="@dimen/text_medium"
+            android:padding="@dimen/dimen8dp"
+            android:layout_marginStart="@dimen/padding16dp"
+            android:layout_marginTop="@dimen/padding16dp"
+            android:layout_marginEnd="@dimen/padding16dp"
+            android:elevation="@dimen/dimen4dp"
+            android:backgroundTint="@color/colorLightBlue"
+            android:onClick="@{()->showstoreviewmodel.addShoe(showstoreviewmodel.shoe,navDirection.getActionId())}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_description_container" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cancel_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel_button"
+            android:textSize="@dimen/text_medium"
+            android:padding="@dimen/dimen8dp"
+            android:layout_marginStart="@dimen/padding16dp"
+            android:layout_marginEnd="@dimen/padding16dp"
+            android:elevation="@dimen/dimen4dp"
+            android:backgroundTint="@color/colorLightBlue"
+            android:onClick="@{()->showstoreviewmodel.cancel(navDirection.getActionId())}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/save_button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
