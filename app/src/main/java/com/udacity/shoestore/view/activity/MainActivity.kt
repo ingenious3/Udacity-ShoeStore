@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var shoeStoreViewModel: ShoeStoreViewModel
     private lateinit var host: NavHostFragment
-    private var menuItemLogout: MenuItem? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,38 +75,11 @@ class MainActivity : AppCompatActivity() {
         // also it determines whether to show the up arrow or not
         setupActionBarWithNavController(navController, appBarConfig)
 
-        // it determines whether to show Logout or not
-        navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            if (destination.label == "Login") {
-                menuItemLogout?.isVisible = false
-            } else {
-                menuItemLogout?.isVisible = true
-            }
-        }
-
     }
 
     //attach navigation up to nav controller
     override fun onSupportNavigateUp(): Boolean {
         return findNavController(R.id.nav_host_fragment).navigateUp(appBarConfiguration)
-    }
-
-    // setup options-menu
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        super.onCreateOptionsMenu(menu)
-        menuInflater.inflate(R.menu.menu, menu)
-
-        menuItemLogout = menu!!.getItem(0)
-        menuItemLogout?.isVisible = false
-
-        return true
-    }
-
-    // setup options-menu click event
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        shoeStoreViewModel.clearShoe()
-        return item.onNavDestinationSelected(findNavController(R.id.nav_host_fragment))
-                || super.onOptionsItemSelected(item)
     }
 
 }
