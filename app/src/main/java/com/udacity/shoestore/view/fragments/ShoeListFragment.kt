@@ -46,13 +46,9 @@ class ShoeListFragment : Fragment() {
         viewModel.getShowList().observe(viewLifecycleOwner, Observer {
             it.forEachIndexed { index, shoe ->
                 val textView = TextView(requireContext())
-                textView.text = "\n \n Name: ${shoe.name} \n Company: ${shoe.company} \n Size: ${shoe.size} \n Description: ${shoe.description}"
+                textView.layoutParams = LinearLayout.LayoutParams( LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
                 textView.id = index
-                textView.layoutParams = LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-                )
-
+                textView.text = "\n \n Name: ${shoe.name} \n Company: ${shoe.company} \n Size: ${shoe.size} \n Description: ${shoe.description}"
                 binding.shoeLists.addView(textView)
             }
         })
